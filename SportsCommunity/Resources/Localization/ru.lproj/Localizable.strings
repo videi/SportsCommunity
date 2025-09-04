@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings
+  SportsCommuinty
+
+  Created by Илья Макаров on 11.03.2025.
+  
+*/
+
+"Message.Notify.title" = "Уведомление";
+"Message.Error.title" = "Ошибка";
+"Message.Valid.title" = "Проверьте данные";
+
+"Alert.Action.yes" = "Да";
+"Alert.Action.no" = "Нет";
+
+"Button.done" = "Готово";
+"Button.cancel" = "Отмена";
+"Button.create" = "Создать";
+
+"Message.PhoneNumber.empty" = "Пожалуйста, введите номер телефона";
+"Message.PhoneNumber.wrong" = "Неверный номер телефона";
+"Message.PhoneNumber.failure" = "Не удалось отправить номер телефона";
+
+"Message.CodeInput.notify" = "Запросить код можно будет через";
+"Message.CodeInput.notify.sec" = "сек.";
+
+"Message.Service.error" = "Сервис выдал исключение";
+
+"Message.Profile.Edit.failure" = "Не удалось сохранить новые данные профиля";
+"Message.Profile.Load.failure" = "Не удалось загрузить информацию о профиле";
+"Message.Profile.Exit.question" = "Вы действительно хотите выйти из профиля?";
+
+"Message.Events.Load.failure" = "Не удалось загрузить информацию о мероприятиях";
+"Message.Events.Edit.failure" = "Не удалось обновить данные мероприятия";
+"Message.Events.Create.failure" = "Не удалось создать мероприятие";
+"Message.Events.Delete.failure" = "Не удалось удалить мероприятие";
+"Message.Events.Edit.notvalid" = "Неверно введены данные мероприятия";
+
+"Main.Profile.Edit.TexField.name" = "Имя";
+"Main.Profile.Edit.TexField.surname" = "Фамилия";
+"Main.Profile.Edit.TexField.email" = "E-mail";
+"Main.Profile.Edit.TexField.birthday" = "Дата рождения";
+"Main.Profile.Edit.Button.logout" = "Выйти из профиля";
+"Main.Profile.Edit.Button.changePhoto" = "Изменить фотографию";
+
+"Main.Events.TableView.NotFound" = "На выбранную дату мероприятий нет";
+"Main.Events.Cell.Content.SecondaryText.Date" = "Дата";
+"Main.Events.Cell.Content.SecondaryText.Address" = "Место";
+"Main.Events.Cell.Content.SecondaryText.Participants" = "Участники";
+"Main.Events.Cell.Content.SecondaryText.SportType" = "Вид спорта";
+
+"Auth.GetCode" = "Получить код";
+"Auth.Registration.title" = "Регистрация";
+"Auth.PhoneNumber.header" = "Введите номер телефона";
+"Auth.CodeInput.header" = "Введите код";
+
+"Main.Profile.title" = "Профиль";
+"Main.Events.title" = "Мероприятия";
+"Main.Events.Create.title" = "Новое мероприятие";
+"Main.Settings.title" = "Настройки";

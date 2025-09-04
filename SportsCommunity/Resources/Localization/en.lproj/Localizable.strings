@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings
+  SportsCommuinty
+
+  Created by Илья Макаров on 11.03.2025.
+  
+*/
+
+"Message.Notify.title" = "Notify";
+"Message.Error.title" = "Error";
+"Message.Valid.title" = "Check the data";
+
+"Alert.Action.yes" = "Yes";
+"Alert.Action.no" = "No";
+
+"Button.done" = "Done";
+"Button.cancel" = "Cancel";
+"Button.create" = "Create";
+
+"Message.PhoneNumber.empty" = "Please enter your phone number";
+"Message.PhoneNumber.wrong" = "Invalid phone number";
+"Message.PhoneNumber.failure" = "Failed to send phone number";
+
+"Message.CodeInput.notify" = "You can request a code in";
+"Message.CodeInput.notify.sec" = "seconds";
+
+"Message.Service.error" = "The service has thrown an exception";
+
+"Message.Profile.Load.failure" = "Failed to load profile information";
+"Message.Profile.Edit.failure" = "Failed to save new profile data";
+"Message.Profile.Exit.question" = "Are you sure you want to log out of your profile?";
+
+"Message.Events.Load.failure" = "Failed to load events information";
+"Message.Events.Edit.failure" = "Failed to update event data";
+"Message.Events.Create.failure" = "Failed to create event";
+"Message.Events.Delete.failure" = "Failed to delete event";
+"Message.Events.Edit.notvalid" = "Incorrectly entered event data";
+
+"Auth.GetCode" = "Get code";
+"Auth.Registration.title" = "Registration";
+"Auth.PhoneNumber.header" = "Enter your phone number";
+"Auth.CodeInput.header" = "Enter the code";
+
+"Main.Profile.Edit.TexField.name" = "Name";
+"Main.Profile.Edit.TexField.surname" = "Surname";
+"Main.Profile.Edit.TexField.email" = "E-mail";
+"Main.Profile.Edit.TexField.birthday" = "Date of birth";
+"Main.Profile.Edit.Button.logout" = "Logout";
+"Main.Profile.Edit.Button.changePhoto" = "Change photo";
+
+"Main.Events.TableView.NotFound" = "There are no events on the selected date";
+"Main.Events.Cell.Content.SecondaryText.Date" = "Date";
+"Main.Events.Cell.Content.SecondaryText.Address" = "Place";
+"Main.Events.Cell.Content.SecondaryText.Participants" = "Participants";
+"Main.Events.Cell.Content.SecondaryText.SportType" = "Sport";
+
+"Main.Profile.title" = "Profile";
+"Main.Events.title" = "Events";
+"Main.Events.Create.title" = "New event";
+"Main.Settings.title" = "Settings";
