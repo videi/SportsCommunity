@@ -20,16 +20,19 @@ final class SplashScreenViewModel {
     
     // MARK: - Init
     
-    init(router: SplashScreenRouter, serviceFactory: ServiceFactory) {
-        
+    init(
+        router: SplashScreenRouter,
+        userSession: UserSessionManager,
+        networkMonitoring: NetworkMonitoringProtocol
+    ) {
         self.router = router
-        self.userSession = serviceFactory.userSession
-        self.networkMonitoring = serviceFactory.networkMonitoring
+        self.userSession = userSession
+        self.networkMonitoring = networkMonitoring
     }
     
     // MARK: - Method
     
-    func checkNetworkConnection() {
+    private func checkNetworkConnection() {
         
         networkMonitoring.checkConnection() { [weak self] isConnected in
             if isConnected {
@@ -41,12 +44,18 @@ final class SplashScreenViewModel {
         
     }
     
-    func checkUserAuth() {
+    private func checkUserAuth() {
         if userSession.isAuthenticated {
             router.goToMainFlow()
         }
         else {
             router.goToAuthFlow()
         }
+    }
+}
+
+extension SplashScreenViewModel: SplashScreenViewOutput {
+    func viewDidLoad() {
+        self.checkNetworkConnection()
     }
 }

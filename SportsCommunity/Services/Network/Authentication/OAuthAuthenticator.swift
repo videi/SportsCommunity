@@ -11,9 +11,11 @@ import Alamofire
 final class OAuthAuthenticator: Authenticator {
     
     private let userSession: UserSessionManager
+    private let tokenManager: TokenManager
     
-    init(userSession: UserSessionManager) {
+    init(userSession: UserSessionManager, tokenManager: TokenManager) {
         self.userSession = userSession
+        self.tokenManager = tokenManager
     }
     
     func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
@@ -31,7 +33,7 @@ final class OAuthAuthenticator: Authenticator {
                     accessToken: tokenResponse.accessToken,
                     refreshToken: tokenResponse.refreshToken))
                 
-                self.userSession.tokenManager.saveTokens(accessToken: tokenResponse.accessToken,
+                self.tokenManager.saveTokens(accessToken: tokenResponse.accessToken,
                                                          refreshToken: tokenResponse.refreshToken)
                 
                 completion(.success(newCredential))

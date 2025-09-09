@@ -8,11 +8,21 @@
 import Foundation
 import SwiftKeychainWrapper
 
+protocol ProfileModuleInput: AnyObject {
+    func userUpdated(_ user: User)
+}
+
+extension ProfileViewModel: ProfileModuleInput {
+    func userUpdated(_ user: User) {
+        self.user = user
+    }
+}
+
 public class ProfileViewModel {
     
     //MARK: - Fields
     
-    private let profileService: ProfileNetworkProtocol
+    private let profileNetworkService: ProfileNetworkProtocol
     
     let router: ProfileRouter
     var user: User? {
@@ -35,7 +45,7 @@ public class ProfileViewModel {
     // MARK: - Init
     
     init(profileService: ProfileNetworkProtocol, router: ProfileRouter) {
-        self.profileService = profileService
+        self.profileNetworkService = profileService
         self.router = router
     }
     
@@ -45,7 +55,7 @@ public class ProfileViewModel {
         
         self.onLoading?(true)
         
-        profileService.getProfile() { [weak self] result in
+        profileNetworkService.getProfile() { [weak self] result in
             guard let self = self else { return }
             
             self.onLoading?(false)
@@ -72,7 +82,7 @@ public class ProfileViewModel {
         self.onLoading?(true)
         
         do {
-            let profileDTO = try await profileService.getProfileAsync()
+            let profileDTO = try await profileNetworkService.getProfileAsync()
             let user = try User(from: profileDTO.user)
             self.user = user
             print("Profile:", user)

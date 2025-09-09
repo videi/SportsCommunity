@@ -21,6 +21,10 @@ public protocol NetworkMonitoringProtocol {
     func checkConnection(completion: @escaping (Bool) -> Void)
 }
 
+public protocol NetworkMonitoringListener: AnyObject {
+    func networkStatusDidChange(isConnected: Bool)
+}
+
 public protocol NetworkMonitorDelegate: AnyObject {
     func networkStatusDidChange(isConnected: Bool)
 }

@@ -12,7 +12,6 @@ public protocol UserSessionDelegate: AnyObject {
 }
 
 public protocol UserSessionManager: Sendable {
-    var tokenManager: TokenManager { get }
     var isAuthenticated: Bool { get }
     
     func getCredential() -> OAuthCredential?
@@ -22,9 +21,11 @@ public protocol UserSessionManager: Sendable {
 final class UserSession: UserSessionManager, @unchecked Sendable {
     
     weak var delegate: UserSessionDelegate?
-    public private(set) lazy var tokenManager: TokenManager = TokenStorage()
+    private var tokenManager: TokenManager
     
-    init() {}
+    init(tokenManager: TokenManager) {
+        self.tokenManager = tokenManager
+    }
     
     var isAuthenticated: Bool {
         guard let token = tokenManager.getToken() else {

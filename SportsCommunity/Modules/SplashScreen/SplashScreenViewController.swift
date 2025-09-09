@@ -7,17 +7,21 @@
 
 import UIKit
 
+protocol SplashScreenViewOutput: AnyObject {
+    func viewDidLoad()
+}
+
 final class SplashScreenViewController: UIViewController {
     
     // MARK: - Property
     
     private let contentView = SplashScreenView()
-    private let viewModel: SplashScreenViewModel
+    private let output: SplashScreenViewOutput
     
     // MARK: - Init
     
-    init(viewModel: SplashScreenViewModel) {
-        self.viewModel = viewModel
+    init(output: SplashScreenViewOutput) {
+        self.output = output
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,7 +40,7 @@ final class SplashScreenViewController: UIViewController {
         setupBinding()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.viewModel.checkNetworkConnection()
+            self.output.viewDidLoad()
         }
     }
     

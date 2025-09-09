@@ -48,6 +48,7 @@ extension AuthCoordinator: PhoneInputRouterDelegate {
                                            phoneNumber: phoneNumber,
                                            authService: self.authServiceFactory.authProvider(),
                                            userSession: self.authServiceFactory.userSession,
+                                           tokenManager: self.authServiceFactory.tokenManager,
                                            router: router)
         let viewController = CodeInputViewController(viewModel: viewModel)
         self.navigationController.pushViewController(viewController, animated: true)

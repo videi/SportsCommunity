@@ -16,6 +16,7 @@ final class CodeInputViewModel {
     
     private let authService: AuthNetworkProtocol
     private let userSession: UserSessionManager
+    private let tokenManager: TokenManager
     private var requestID: String
     private let phoneNumber : String
     
@@ -41,11 +42,13 @@ final class CodeInputViewModel {
          phoneNumber: String,
          authService: AuthNetworkProtocol,
          userSession: UserSessionManager,
+         tokenManager: TokenManager,
          router: CodeInputRouter) {
         self.router = router
         
         self.requestID = requestID
         self.phoneNumber = phoneNumber
+        self.tokenManager = tokenManager
         self.authService = authService
         self.userSession = userSession
         
@@ -93,7 +96,7 @@ final class CodeInputViewModel {
             
             switch result {
             case .success(let token):
-                self.userSession.tokenManager.saveTokens(accessToken: token.accessToken, 
+                self.tokenManager.saveTokens(accessToken: token.accessToken,
                                                          refreshToken: token.refreshToken)
                 timer?.invalidate()
                 self.router.goToMain()

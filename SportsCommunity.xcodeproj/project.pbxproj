@@ -104,6 +104,7 @@
 		9AFBB8A82E11D987005F4CD1 /* HelveticaNeue-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9AFBB8A22E11D987005F4CD1 /* HelveticaNeue-Thin.otf */; };
 		9AFBB8AA2E16BF36005F4CD1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBB8A92E16BF36005F4CD1 /* SettingsView.swift */; };
 		9AFBB8AC2E17D43E005F4CD1 /* UIDataPickerScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFBB8AB2E17D43E005F4CD1 /* UIDataPickerScroll.swift */; };
+		A8B3DB8F2E6EEB75006F477F /* SplashScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B3DB8E2E6EEB71006F477F /* SplashScreenContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,7 @@
 		9AFBB8A22E11D987005F4CD1 /* HelveticaNeue-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Thin.otf"; sourceTree = "<group>"; };
 		9AFBB8A92E16BF36005F4CD1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9AFBB8AB2E17D43E005F4CD1 /* UIDataPickerScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDataPickerScroll.swift; sourceTree = "<group>"; };
+		A8B3DB8E2E6EEB71006F477F /* SplashScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 		9ADABDED2D5F2A9200AB2EEC /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A8B3DB8E2E6EEB71006F477F /* SplashScreenContainer.swift */,
 				9ADABDF02D5F2AB500AB2EEC /* SplashScreenView.swift */,
 				9ADABDEF2D5F2AB500AB2EEC /* SplashScreenViewController.swift */,
 				9ADABDF12D5F2AB500AB2EEC /* SplashScreenViewModel.swift */,
@@ -916,6 +919,7 @@
 				9ADF828B2CD8112B00F3D1FC /* UIColor+Extensions.swift in Sources */,
 				9AEC5EB72E55DE950084996B /* ProfileAPI.swift in Sources */,
 				9AEC5EAC2E5203210084996B /* MockServerService.swift in Sources */,
+				A8B3DB8F2E6EEB75006F477F /* SplashScreenContainer.swift in Sources */,
 				9ADF82D32D42967400F3D1FC /* PhoneInputRouter.swift in Sources */,
 				9ADF82D92D43CF4500F3D1FC /* CodeInputRouter.swift in Sources */,
 				9ADF82DC2D44192B00F3D1FC /* ProfileView.swift in Sources */,

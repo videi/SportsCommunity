@@ -11,8 +11,10 @@ import Alamofire
 protocol AuthServiceFactory: AuthServiceDependecy {
     func authProvider() -> AuthNetworkProtocol
 }
+
 protocol AuthServiceDependecy: ServiceDependency {
     var userSession: UserSessionManager { get }
+    var tokenManager: TokenManager { get }
 }
 
 extension AuthServiceFactory {

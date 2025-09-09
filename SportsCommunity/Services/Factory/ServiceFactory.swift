@@ -9,10 +9,12 @@ import Foundation
 
 public class ServiceFactory {
     let userSession: UserSessionManager
+    let tokenManager: TokenManager
     private(set) var networkMonitoring: NetworkMonitoringProtocol
     
-    init(userSession: UserSession) {
+    init(userSession: UserSession, tokenMager: TokenManager) {
         self.userSession = userSession
+        self.tokenManager = tokenMager
         self.networkMonitoring = NetworkMonitoringService()
     }
 }

@@ -9,16 +9,12 @@ import Foundation
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var navigationController: UINavigationController { get set }
-    var childCoordinators: [Coordinator] { get set }
-    
     func start()
 }
 
 final class AppCoordinator: Coordinator {
 
     private let window: UIWindow
-    private let userSession: UserSession
     private let serviceFactory: ServiceFactory
     
     var navigationController: UINavigationController
@@ -27,13 +23,14 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow, navigationController: UINavigationController) {
         self.window = window
         self.navigationController = navigationController
-        self.userSession = UserSession()
-        self.serviceFactory = ServiceFactory(userSession: self.userSession)
+        let tokenManager = TokenStorage()
+        let userSession = UserSession(tokenManager: tokenManager)
+        self.serviceFactory = ServiceFactory(userSession: userSession, tokenMager: tokenManager)
+
+        userSession.delegate = self
     }
     
     func start() {
-        self.userSession.delegate = self
-        
         var network = serviceFactory.networkMonitoring
         network.delegate = self
         network.startMonitoring()
@@ -45,10 +42,11 @@ final class AppCoordinator: Coordinator {
     }
     
     func startSplashScreen() {
-        let router = SplashScreenRouter()
-        router.delegate = self
-        let viewModel = SplashScreenViewModel(router: router, serviceFactory: serviceFactory)
-        let viewController = SplashScreenViewController(viewModel: viewModel)
+        let viewController = SplashScreenContainer().build(.init(
+            userSession: serviceFactory.userSession,
+            networkMonitoring: serviceFactory.networkMonitoring,
+            routerDelegate: self
+        ))
         navigationController.setViewControllers([viewController], animated: true)
     }
     

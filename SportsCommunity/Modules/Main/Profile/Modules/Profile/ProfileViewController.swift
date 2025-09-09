@@ -96,10 +96,6 @@ final class ProfileViewController: UIViewController {
             showAlertOk(title: L10n.Message.Error.title, message: error.localizedDescription)
         }
     }
-    
-    public func updateUserInfo(user: User) {
-        viewModel.user = user
-    }
 }
 
 extension ProfileViewController {

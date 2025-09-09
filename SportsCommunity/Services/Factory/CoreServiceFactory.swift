@@ -13,12 +13,13 @@ protocol CoreServiceFactory: CoreServiceDependecy {
 }
 protocol CoreServiceDependecy: ServiceDependency {
     var userSession: UserSessionManager { get }
+    var tokenManager: TokenManager { get }
     var networkMonitoring: NetworkMonitoringProtocol { get }
 }
 
 extension CoreServiceFactory {
     func makeAuthenticatedNetworkService() -> NetworkService {
-        let authenticator = OAuthAuthenticator(userSession: self.userSession)
+        let authenticator = OAuthAuthenticator(userSession: self.userSession, tokenManager: self.tokenManager)
         let interceptor = AuthenticationInterceptor(authenticator: authenticator, credential: userSession.getCredential())
         
         #if MOCK

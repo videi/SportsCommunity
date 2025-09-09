@@ -15,6 +15,8 @@ final class ProfileCoordinator: Coordinator {
     let profileService: ProfileNetworkProtocol
     let userSessionManager: UserSessionManager
     
+    private weak var profileModuleInput: ProfileModuleInput?
+    
     init(navigationController: UINavigationController, mainServiceFactory: MainServiceFactory) {
         self.navigationController = navigationController
         self.profileService = mainServiceFactory.profileProvider()
@@ -31,6 +33,8 @@ final class ProfileCoordinator: Coordinator {
         let viewModel = ProfileViewModel(profileService: self.profileService, router: router)
         let viewController = ProfileViewController(viewModel: viewModel)
         self.navigationController.setViewControllers([viewController], animated: false)
+        
+        self.profileModuleInput = viewModel
     }
 }
 
@@ -43,7 +47,7 @@ extension ProfileCoordinator: ProfileRouterDelegate {
         viewController.hidesBottomBarWhenPushed = true
         self.navigationController.pushViewController(viewController, animated: true)
     }
-} 
+}
 
 extension ProfileCoordinator: ProfileEditRouterDelegate {
     func didCancelEditProfile() {
@@ -51,10 +55,7 @@ extension ProfileCoordinator: ProfileEditRouterDelegate {
     }
     
     func didSaveEditProfile(updatedUser: User) {
-        self.navigationController.viewControllers
-            .compactMap { $0 as? ProfileViewController }
-            .first?
-            .updateUserInfo(user: updatedUser)
+        profileModuleInput?.userUpdated(updatedUser)
         self.navigationController.popViewController(animated: true)
     }
 }
